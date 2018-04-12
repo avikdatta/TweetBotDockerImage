@@ -3,8 +3,7 @@ A ubuntu based docker image for running tweet bot using python api
 
 
 ### Usage
-<pre><code>
-usage: run_tweet_dm_bot.py -h
+<pre><code>usage: run_tweet_dm_bot.py -h
                            -d DB_NAME 
                            -f QUICK_REPLY_DATA 
                            -m MESSAGE_DATA
@@ -24,8 +23,7 @@ optional arguments:
 Twitter has a specific structure for the [quick replies using direct messaging](https://developer.twitter.com/en/docs/direct-messages/quick-replies/api-reference/options). The data for the "quick_reply" post data senction can be provided using a json file.
 
 #### An example json structure for quick reply data
-<pre><code>
-{
+<pre><code>{
           "type": "options",
           "options": [
             {
@@ -56,8 +54,7 @@ Twitter has a specific structure for the [quick replies using direct messaging](
 The bot reply for the user tweets can be loaded to database using an json data file. There should be two entries present for each of the json data blocks, e.g. 'keyword' and 'message_out'. No white spache or any symbols (except "\_") are allowed for the 'keyword' section.
 
 #### An example of the message data
-<pre><code>
-[
+<pre><code>[
   { "keyword":"White_Bird",
     "message_out":"A nice white bird"
    }
@@ -66,11 +63,10 @@ The bot reply for the user tweets can be loaded to database using an json data f
 
 ### Twitter api token
 The consumer and access token keys for the Twitter app should be provided using a json file. 
-*Note: Twitter app should have permissions for sending direct messages*
+**Note: Twitter app should have permissions for sending direct messages**
 
 #### An example token file
-<pre><code>
-{
+<pre><code>{
     "consumer_key":"AAAAAAAAAAAAAAAAAA",
     "consumer_secret":"BBBBBBBBBBBBBBBBBB",
     "access_token_key":"CCCCCCCCCCCCCCCCCC",
@@ -83,13 +79,11 @@ A docker image is available for running this tweet bot.
 * [avikdatta/tweetbotdockerimage](https://hub.docker.com/r/avikdatta/tweetbotdockerimage/)
 
 #### Pull docker image from Dockerhub
-<pre><code>
-  docker pull avikdatta/tweetbotdockerimage
+<pre><code>  docker pull avikdatta/tweetbotdockerimage
 </code></pre>
 
 #### Run tweetbot from docker image
-<pre><code>
-docker run -d \
+<pre><code>docker run -d \
 -v /host_dir/igf_bot_conf:/home/vmuser/igf_bot_conf \
 avikdatta/tweetbotdockerimage python /home/vmuser/IGFTweetBot/scripts/run_tweet_dm_bot.py \
   -d /home/vmuser/igf_bot_conf/tweetbot_db.sqlite \

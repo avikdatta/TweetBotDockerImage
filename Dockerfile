@@ -59,5 +59,5 @@ RUN pyenv install 3.5.2
 RUN pyenv global 3.5.2
 
 RUN git clone https://github.com/imperial-genomics-facility/IGFTweetBot.git
-ENV PYTHONPATH=/home/$NB_USER/IGFTweetBot
+ENV PYTHONPATH=/home/$NB_USER/IGFTweetBot:"$PYTHONPATH"
 RUN pip install -r /home/$NB_USER/IGFTweetBot/requirements.txt
